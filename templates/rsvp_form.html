@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}RSVP{% endblock %}
+
+{% block content %}
+<section class="rsvp-form">
+    <h2>RSVP</h2>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="attending">Attending:</label>
+        <select name="attending" id="attending">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <div id="meal-choice" style="display:none">
+            <label for="meal_choice">Meal Choice:</label>
+            <select name="meal_choice" id="meal_choice">
+                <option value="beef">Beef</option>
+                <option value="chicken">Chicken</option>
+                <option value="vegetarian">Vegetarian</option>
+            </select>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+{% endblock %}
+
+
