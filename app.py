@@ -6,7 +6,7 @@ from jinja2.ext import Extension
 app = Flask(__name__)
 app.jinja_env.add_extension('jinja2.ext.do')
 
-base_url = 'https://yourwebsite.com/invitation/'
+base_url = 'https://rehearsal-dinner.herokuapp.com/'
 
 # Add MenuItem class definition
 class MenuItem:
