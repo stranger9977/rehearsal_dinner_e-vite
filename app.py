@@ -105,7 +105,7 @@ def update_guest_data(guests_by_pair):
 csv_filename = 'guests.csv'
 guests_by_pair = generate_guest_data(csv_filename)
 
-@app.route('/<pair_id>', methods=['GET'])
+@app.route('/<pair_id>', methods=['GET', 'POST'])
 def guest_page(pair_id):
     try:
         # Look up the guests associated with this pair ID
