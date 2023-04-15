@@ -31,11 +31,15 @@ menu_items = [
 
 @app.route('/<pair_id>')
 def guest_page(pair_id):
-    # Look up the guests associated with this pair ID
-    guests = guests_by_pair[pair_id]
+    try:
+        # Look up the guests associated with this pair ID
+        guests = guests_by_pair[pair_id]
 
-    # Render the guest page template with the appropriate data
-    return render_template('index.html', guests=guests, menu_items=menu_items)
+        # Render the guest page template with the appropriate data
+        return render_template('index.html', guests=guests, menu_items=menu_items)
+    except KeyError:
+        # If the pair ID is not found, render an error page
+        return render_template('error.html', error_message="Invalid pair ID")
 
 def generate_guest_urls(csv_filename):
     with open(csv_filename, 'r') as csvfile:
