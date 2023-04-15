@@ -171,33 +171,42 @@ def get_guest_menu_choices(pair_id):
     else:
         return None
 
-
 @app.route('/menu', methods=['GET', 'POST'])
-def menu():
+def menu(pair_id=None):
     global guests_by_pair
-    selected_pair_id = pair_id if pair_id is not None else "5980"
+    if pair_id is None:
+        pair_id = request.args.get('pair_id', "5980")  # default pair ID
 
     if request.method == "POST":
         # Process form submission and update the menu choices
-        guest_name1, guest_name2 = get_guest_names(selected_pair_id)
-        # Process form submission and update the menu choices
-        guests_by_pair[selected_pair_id][guest_name1]['appetizer'] = request.form.get(f"{guest_name1}-appetizer")
-        guests_by_pair[selected_pair_id][guest_name1]['entree'] = request.form.get(f"{guest_name1}-entree")
-        guests_by_pair[selected_pair_id][guest_name1]['dessert'] = request.form.get(f"{guest_name1}-dessert")
-
-        guests_by_pair[selected_pair_id][guest_name2]['appetizer'] = request.form.get(f"{guest_name2}-appetizer")
-        guests_by_pair[selected_pair_id][guest_name2]['entree'] = request.form.get(f"{guest_name2}-entree")
-        guests_by_pair[selected_pair_id][guest_name2]['dessert'] = request.form.get(f"{guest_name2}-dessert")
+        guest_name1, guest_name2 = get_guest_names(pair_id)
+        guest1_choices = {
+            "appetizer": request.form.get(f"{guest_name1}-appetizer"),
+            "entree": request.form.get(f"{guest_name1}-entree"),
+            "dessert": request.form.get(f"{guest_name1}-dessert")
+        }
+        guest2_choices = {
+            "appetizer": request.form.get(f"{guest_name2}-appetizer"),
+            "entree": request.form.get(f"{guest_name2}-entree"),
+            "dessert": request.form.get(f"{guest_name2}-dessert")
+        }
+        guests_by_pair[pair_id][guest_name1]['appetizer'] = guest1_choices["appetizer"]
+        guests_by_pair[pair_id][guest_name1]['entree'] = guest1_choices["entree"]
+        guests_by_pair[pair_id][guest_name1]['dessert'] = guest1_choices["dessert"]
+        guests_by_pair[pair_id][guest_name2]['appetizer'] = guest2_choices["appetizer"]
+        guests_by_pair[pair_id][guest_name2]['entree'] = guest2_choices["entree"]
+        guests_by_pair[pair_id][guest_name2]['dessert'] = guest2_choices["dessert"]
 
         # Update the CSV file after updating guest data
         print("Updating guest data in CSV file")
         update_guest_data(guests_by_pair)
 
         # Redirect to a success or confirmation page, or just reload the menu page
-        return redirect(url_for('final', selected_pair_id=selected_pair_id))
+        return redirect(url_for('final', pair_id=pair_id))
 
-    guest_name1, guest_name2 = get_guest_names(selected_pair_id)
-    return render_template('menu.html', guest_name1=guest_name1, guest_name2=guest_name2, menu_items=menu_items)
+    guest_name1, guest_name2 = get_guest_names(pair_id)
+    return render_template('menu.html', guest_name1=guest_name1, guest_name2=guest_name2, menu_items=menu_items, pair_id=pair_id)
+
 
 @app.route('/final')
 def final():
