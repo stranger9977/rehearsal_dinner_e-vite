@@ -36,7 +36,7 @@ def guest_page(pair_id):
         guests = guests_by_pair[pair_id]
 
         # Render the guest page template with the appropriate data
-        return render_template('index.html', guests=guests, menu_items=menu_items)
+        return render_template('index.html', guests=guests, menu_items=menu_items, get_guest_rsvp=get_guest_rsvp)
     except KeyError:
         # If the pair ID is not found, render an error page
         return render_template('error.html', error_message="Invalid pair ID")
@@ -93,6 +93,17 @@ def get_guest_rsvp(guest_name, guests):
         if guest["name"] == guest_name:
             return guest["rsvpStatus"]
     return 'pending'
+@app.route('/<pair_id>')
+def guest_page(pair_id):
+    try:
+        # Look up the guests associated with this pair ID
+        guests = guests_by_pair[pair_id]
+
+        # Render the guest page template with the appropriate data
+        return render_template('index.html', guests=guests, menu_items=menu_items, get_guest_rsvp=get_guest_rsvp)
+    except KeyError:
+        # If the pair ID is not found, render an error page
+        return render_template('error.html', error_message="Invalid pair ID")
 
 def update_guest_rsvp(pair_id, guest_name, rsvp_status, guests_by_pair):
     # Update the rsvp status for the guest with the given pair_id and guest name
