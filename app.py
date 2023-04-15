@@ -35,7 +35,7 @@ def guest_page(pair_id):
     guests = guests_by_pair[pair_id]
 
     # Render the guest page template with the appropriate data
-    return render_template('guest.html', guests=guests, menu_items=menu_items)
+    return render_template('index.html', guests=guests, menu_items=menu_items)
 
 def generate_guest_urls(csv_filename):
     with open(csv_filename, 'r') as csvfile:
