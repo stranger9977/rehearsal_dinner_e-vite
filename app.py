@@ -106,7 +106,7 @@ def update_guest_data(guests_by_pair):
 csv_filename = 'guests.csv'
 guests_by_pair = generate_guest_data(csv_filename)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', defaults={'pair_id': 5980}, methods=['GET', 'POST'])
 @app.route('/<pair_id>', methods=['GET', 'POST'])
 def index():
     selected_pair_id = request.args.get('pair_id', "5980")  # default pair ID
