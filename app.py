@@ -162,7 +162,7 @@ def get_guest_menu_choices(pair_id):
 @app.route('/menu', methods=['GET', 'POST'])
 def menu():
     global guests_by_pair
-    selected_pair_id = request.args.get('selected_pair_id', "5980")
+    selected_pair_id = pair_id if pair_id is not None else "5980"
 
     if request.method == "POST":
         # Process form submission and update the menu choices
