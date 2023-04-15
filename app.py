@@ -29,18 +29,6 @@ menu_items = [
     MenuItem(9, 'Dessert 3', 'Delicious dessert 3', 'dessert')
 ]
 
-@app.route('/<pair_id>')
-def guest_page(pair_id):
-    try:
-        # Look up the guests associated with this pair ID
-        guests = guests_by_pair[pair_id]
-
-        # Render the guest page template with the appropriate data
-        return render_template('index.html', guests=guests, menu_items=menu_items)
-    except KeyError:
-        # If the pair ID is not found, render an error page
-        return render_template('error.html', error_message="Invalid pair ID")
-
 def generate_guest_urls(csv_filename):
     with open(csv_filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -119,6 +107,7 @@ csv_filename = 'guests.csv'
 guests_by_pair = generate_guest_data(csv_filename)
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/<pair_id>', methods=['GET', 'POST'])
 def index():
     selected_pair_id = request.args.get('pair_id', "5980")  # default pair ID
     guest_name1, guest_name2 = get_guest_names(selected_pair_id)
