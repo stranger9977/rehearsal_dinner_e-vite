@@ -108,7 +108,7 @@ guests_by_pair = generate_guest_data(csv_filename)
 
 @app.route('/', defaults={'pair_id': 5980}, methods=['GET', 'POST'])
 @app.route('/<pair_id>', methods=['GET', 'POST'])
-def index(pair_id=5980):
+def index(pair_id=None):
     selected_pair_id = request.args.get('pair_id', "5980")  # default pair ID
     guest_name1, guest_name2 = get_guest_names(selected_pair_id)
 
