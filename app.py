@@ -106,6 +106,19 @@ def update_guest_data(guests_by_pair):
 csv_filename = 'guests.csv'
 guests_by_pair = generate_guest_data(csv_filename)
 
+@app.route('/<pair_id>')
+def guest_page(pair_id):
+    try:
+        # Look up the guests associated with this pair ID
+        guests = guests_by_pair[pair_id]
+
+        # Render the guest page template with the appropriate data
+        return render_template('index.html', selected_pair_id=pair_id, guests=guests, menu_items=menu_items)
+    except KeyError:
+        # If the pair ID is not found, render an error page
+        return render_template('error.html', error_message="Invalid pair ID")
+
+
 @app.route('/', defaults={'pair_id': None}, methods=['GET', 'POST'])
 @app.route('/<pair_id>', methods=['GET', 'POST'])
 def index(pair_id=None):
