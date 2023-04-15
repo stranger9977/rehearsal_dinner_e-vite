@@ -144,11 +144,13 @@ def index():
         print("Updating guest data in CSV file")
         update_guest_data(guests_by_pair)
 
-        # Redirect to thank you page
-        return redirect(url_for('menu', selected_pair_id=selected_pair_id))
+        # Redirect to the menu page after submitting the RSVP status
+        return redirect(url_for('menu', pair_id=selected_pair_id))
 
+    # Render the index page if the request method is GET
     return render_template("index.html", selected_pair_id=selected_pair_id, guest_name1=guest_name1,
                            guest_name2=guest_name2, get_guest_rsvp=get_guest_rsvp)
+
 
 def get_guest_menu_choices(pair_id):
     # Get the guests with the specified pair_id
