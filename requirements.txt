@@ -1,4 +1,3 @@
 Flask==2.0.2
 Jinja2==3.0.2
-csv
 Werkzeug==2.0.2
