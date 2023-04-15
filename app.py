@@ -88,7 +88,7 @@ def get_guest_rsvp(guest_name, guests):
     for guest in guests:
         if guest["name"] == guest_name:
             return guest["rsvpStatus"]
-    return None
+    return 'pending'
 
 def update_guest_rsvp(pair_id, guest_name, rsvp_status, guests_by_pair):
     # Update the rsvp status for the guest with the given pair_id and guest name
