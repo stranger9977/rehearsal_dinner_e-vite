@@ -113,15 +113,15 @@ def guest_page(pair_id):
         guests = guests_by_pair[pair_id]
 
         # Render the guest page template with the appropriate data
-        return render_template('index.html', selected_pair_id=pair_id, guests=guests, menu_items=menu_items)
+        return render_template('index.html', selected_pair_id=pair_id, guests=guests, menu_items=menu_items, get_guest_rsvp=get_guest_rsvp)
     except KeyError:
         # If the pair ID is not found, render an error page
         return render_template('error.html', error_message="Invalid pair ID")
 
 
+
 @app.route('/', defaults={'pair_id': None}, methods=['GET', 'POST'])
-@app.route('/<pair_id>', methods=['GET', 'POST'])
-def index(pair_id=None):
+def index():
     selected_pair_id = request.args.get('pair_id', "5980")  # default pair ID
     guest_name1, guest_name2 = get_guest_names(selected_pair_id)
 
