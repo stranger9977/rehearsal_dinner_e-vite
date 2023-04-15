@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehearsal Dinner Invitation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ url_for('index') }}">S & N</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('menu') }}">Menu</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container d-flex justify-content-center align-items-center vh-100" style="margin-top: .001 rem;">
+    <div class="welcome-box">
+        <div class="title-container"> <!-- Add this div -->
+            <h1>Rehearsal Dinner</h1>
+        </div>
+        <div class="welcome-message">
+            <p>
+                Welcome to our rehearsal dinner invitation website! Please RSVP below. After submitting your RSVP, you can view the menu for the event.
+            </p>
+        </div>
+        <form method="POST">
+            <div class="guest-box-container">
+                <div class="guest-info">
+                    <h3>{{ guest_name1 }}</h3>
+                    <label>RSVP:</label>
+                    <input type="hidden" name="rsvp_guest" value="{{ guest_name1 }}">
+                    <select class="rsvp-select" name="rsvpStatus1">
+                        <option value="" disabled selected>Choose one...</option>
+                        <option value="yes" {% if get_guest_rsvp(guest_name1, guests) == True %}selected{% endif %}>Yes</option>
+                        <option value="no" {% if get_guest_rsvp(guest_name1, guests) == False %}selected{% endif %}>No</option>
+                    </select>
+                </div>
+{% if guest_name2 %}
+<div class="guest-box-container">
+    <div class="guest-info">
+        <h3>{{ guest_name2 }}</h3>
+        <label>RSVP:</label>
+        <input type="hidden" name="rsvp_guest" value="{{ guest_name2 }}">
+        <select name="rsvpStatus2">
+            <option value="" disabled selected>Choose one...</option>
+            <option value="yes" {% if get_guest_rsvp(guest_name2, guests) == True %}selected{% endif %}>Yes</option>
+            <option value="no" {% if get_guest_rsvp(guest_name2, guests) == False %}selected{% endif %}>No</option>
+        </select>
+    </div>
+{% else %}
+<p>Guest not found.</p>
+{% endif %}
+
+<button type="submit" class="btn btn-primary">Submit and See Menu!</button>
+</form>
+    </div>
+</div>
+
+<footer></footer>
+</body>
+</html>
+

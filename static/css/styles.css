@@ -1,0 +1,317 @@
+/* General styles */
+nav.navbar {
+    background-color: #5C2D0F;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    background-color: #5C2D0F !important; /* Brown background */
+}
+.navbar .nav-link {
+    color: #F9E79F !important; /* Yellow font color */
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #F1C40F !important; /* Slightly darker yellow font color on hover */
+}
+
+.navbar .navbar-brand {
+    color: #F9E79F; /* Yellow font color */
+}
+
+.navbar .navbar-brand:hover {
+    color: #F1C40F; /* Slightly darker yellow font color on hover */
+}
+
+.title-container {
+  margin-top: 4rem;
+}
+body {
+    background-color: #F9E79F; /* Canary yellow background */
+    color: #5C2D0F; /* Darker brown font color */
+    font-family: 'Tangerine', cursive; /* Scripty but not hard-to-read font */
+    background-image: url("https://i.etsystatic.com/11020628/r/il/9b0f99/3401227635/il_1588xN.3401227635_cl9s.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+section {
+    padding: 2rem 0;
+}
+
+/* Landing page styles */
+#landing-page {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* ... */
+.welcome-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 500px; /* Add this line to limit the width */
+    width: 90%; /* Add this line to make the width responsive */
+}
+
+.guest-box-container {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.guest-info {
+    background-color: rgba(249, 231, 159, 0.8);
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px; /* Add this line to set the width */
+}
+
+button.btn-primary, .navigation-buttons a.btn-secondary {
+  background-color: #5C2D0F;
+  border-color: #5C2D0F;
+  color: #F9E79F;
+}
+
+h1, h3 {
+    color: #5C2D0F;
+}
+
+h1, h2, h3, h4, h5, h6, .guest h3 {
+    font-weight: bold;
+}
+
+.guest-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.guest-box {
+    background-color: rgba(249, 231, 159, 0.8); /* Transparent pale yellow box */
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.navigation-buttons a.btn-secondary {
+  background-color: #8B4513;
+  border-color: #8B4513;
+  color: #F9E79F;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+}/* ... existing CSS ... */
+
+/* Style the menu section */
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.menu-box {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.menu-box .dish-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+/* Style the dropdown menus */
+.menu-dropdown {
+  background-color: #F9E79F;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.menu-dropdown select {
+  background-color: #F9E79F;
+  border: 1px solid #5C2D0F;
+  color: #5C2D0F;
+}
+
+
+/* Style the submit button */
+.menu-form button[type="submit"] {
+  background-color: #5C2D0F;
+  border-color: #5C2D0F;
+  color: #F9E79F;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.menu-form button[type="submit"]:hover {
+  background-color: #F9E79F;
+  color: #5C2D0F;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.form-group-centered {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-group-centered label,
+.form-group-centered select {
+    display: block;
+}
+/* Add these lines to your existing CSS */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.menu-item {
+  background-color: #5C2D0F;
+  color: #F9E79F;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.submit-button {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+.carousel {
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.carousel-item {
+  min-width: 100%;
+  transition: transform 0.6s ease;
+  text-align: center;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: -20px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.carousel-indicators li {
+  background-color: #5C2D0F;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 10px;
+  margin: 0 3px;
+  width: 10px;
+}
+
+.carousel-indicators .active {
+  background-color: #8B4513;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #5C2D0F;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #8B4513;
+}
+
+.carousel + .form-group {
+  margin-top: 1rem;
+}
+
+/* Mobile-first styles */
+@media (max-width: 767px) {
+  /* Adjust the width of the appetizer, entree, and dessert boxes to fit smaller screens */
+  .appetizer-box, .entree-box, .dessert-box {
+    width: 100%;
+  }
+
+  /* Adjust font sizes to be more readable on small screens */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+/* Center the navigation buttons on small screens */
+.navigation-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

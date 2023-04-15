@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <h1>Thank You for RSVPing!</h1>
+    </header>
+
+    <section id="final-page">
+        <div class="thank-you-message">
+            <p>We're excited to see you at our rehearsal dinner on DATE at LOCATION.</p>
+            <p>Below are the details of the event and options to add it to your calendar:</p>
+        </div>
+        <div class="event-details">
+            <h3>Rehearsal Dinner Details</h3>
+            <p>Date: DATE</p>
+            <p>Time: TIME</p>
+            <p>Location: LOCATION</p>
+            <p>Address: ADDRESS</p>
+        </div>
+        <div class="add-to-calendar">
+            <h3>Add to Calendar</h3>
+            <a href="LINK_TO_GOOGLE_CALENDAR_EVENT" target="_blank" class="btn btn-primary">Add to Google Calendar</a>
+            <a href="LINK_TO_APPLE_CALENDAR_EVENT" target="_blank" class="btn btn-primary">Add to Apple Calendar</a>
+        </div>
+    </section>
+{% endblock %}
+
