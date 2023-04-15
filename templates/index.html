@@ -45,8 +45,8 @@
                     <input type="hidden" name="rsvp_guest" value="{{ guest_name1 }}">
                     <select class="rsvp-select" name="rsvpStatus1">
                         <option value="" disabled selected>Choose one...</option>
-<option value="yes" {% if get_guest_rsvp(guest_name1, guests) == True %}selected{% endif %}>Yes</option>
-<option value="no" {% if get_guest_rsvp(guest_name1, guests) == True %}selected{% endif %}>No</option>
+                        <option value="yes" {% if get_guest_rsvp(guest_name1, guests) == True %}selected{% endif %}>Yes</option>
+                        <option value="no" {% if get_guest_rsvp(guest_name1, guests) == False %}selected{% endif %}>No</option>
                     </select>
                 </div>
 {% if guest_name2 %}
@@ -57,8 +57,8 @@
         <input type="hidden" name="rsvp_guest" value="{{ guest_name2 }}">
         <select name="rsvpStatus2">
             <option value="" disabled selected>Choose one...</option>
-  <option value="yes" {% if get_guest_rsvp(guest_name2, guests) == True %}selected{% endif %}>Yes</option>
-<option value="no" {% if get_guest_rsvp(guest_name2, guests) == True %}selected{% endif %}>No</option>
+            <option value="yes" {% if get_guest_rsvp(guest_name2, guests) == True %}selected{% endif %}>Yes</option>
+            <option value="no" {% if get_guest_rsvp(guest_name2, guests) == False %}selected{% endif %}>No</option>
         </select>
     </div>
 {% else %}
