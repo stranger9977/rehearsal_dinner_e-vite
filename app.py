@@ -29,7 +29,13 @@ menu_items = [
     MenuItem(9, 'Dessert 3', 'Delicious dessert 3', 'dessert')
 ]
 
+@app.route('/<pair_id>')
+def guest_page(pair_id):
+    # Look up the guests associated with this pair ID
+    guests = guests_by_pair[pair_id]
 
+    # Render the guest page template with the appropriate data
+    return render_template('guest.html', guests=guests, menu_items=menu_items)
 
 def generate_guest_urls(csv_filename):
     with open(csv_filename, 'r') as csvfile:
