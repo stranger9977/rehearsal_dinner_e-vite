@@ -174,8 +174,9 @@ def get_guest_menu_choices(pair_id):
         return None
 
 @app.route('/menu', methods=['GET', 'POST'])
-def menu(pair_id=None):
+def menu():
     global guests_by_pair
+    pair_id = request.args.get('pair_id', "5980")  # default pair ID
     if pair_id is None:
         pair_id = request.args.get('pair_id', "5980")  # default pair ID
 
