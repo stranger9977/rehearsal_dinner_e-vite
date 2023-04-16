@@ -119,10 +119,8 @@ def guest_page(pair_id):
     except KeyError:
         # If the pair ID is not found, render an error page
         return render_template('error.html', error_message="Invalid pair ID")
-
-@app.route('/', defaults={'pair_id': None}, methods=['GET', 'POST'])
-@app.route('/<pair_id>', methods=['GET', 'POST'])
-def index(pair_id):
+@app.route('/', methods=['GET', 'POST'])
+def index():
 
     selected_pair_id = request.args.get('pair_id', "5980")  # default pair ID
     guest_name1, guest_name2 = get_guest_names(selected_pair_id)
@@ -131,10 +129,8 @@ def index(pair_id):
         # Get the RSVP status from the form
         rsvp_status1 = request.form.get("rsvpStatus1")
         rsvp_status2 = request.form.get("rsvpStatus2")
-        rsvp_guest = request.form.get("rsvp_guest")
 
         # Update the guest data for the guest whose RSVP status was submitted
-        guests_by_pair = generate_guest_data(csv_filename)
         if rsvp_status1 is not None:
             update_guest_rsvp(selected_pair_id, guest_name1, rsvp_status1 == "yes", guests_by_pair)
             print(f"Updating RSVP status for {guest_name1} to {rsvp_status1}")
@@ -147,10 +143,10 @@ def index(pair_id):
         update_guest_data(guests_by_pair)
 
         # Redirect to the menu page after submitting the RSVP status
-        return redirect(url_for('menu', pair_id=pair_id))
+        return redirect(url_for('menu', pair_id=selected_pair_id))
 
     # Render the index page if the request method is GET
-    return render_template("index.html", selected_pair_id=selected_pair_id, guest_name1=guest_name1,
+    return render_template("index.html", pair_id=selected_pair_id, guest_name1=guest_name1,
                            guest_name2=guest_name2, get_guest_rsvp=get_guest_rsvp)
 
 
@@ -175,8 +171,8 @@ def get_guest_menu_choices(pair_id):
     else:
         return None
 
-@app.route('/menu/<pair_id>', methods=['GET', 'POST'])
-def menu(pair_id):
+@app.route('/menu', methods=['GET', 'POST'])
+def menu():
     global guests_by_pair
     pair_id = request.args.get('pair_id', "5980")  # default pair ID
     if pair_id is None:
@@ -213,8 +209,8 @@ def menu(pair_id):
     return render_template('menu.html', guest_name1=guest_name1, guest_name2=guest_name2, menu_items=menu_items, pair_id=pair_id)
 
 
-@app.route('/final/<pair_id>')
-def final(pair_id):
+@app.route('/final')
+def final():
     guests_by_pair = generate_guest_data(csv_filename)
 
     # Filter the guests who have RSVP'd "yes" and have submitted their menu choices
