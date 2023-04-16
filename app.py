@@ -147,7 +147,7 @@ def index(pair_id):
         update_guest_data(guests_by_pair)
 
         # Redirect to the menu page after submitting the RSVP status
-        return redirect(url_for('menu', pair_id=selected_pair_id))
+        return redirect(url_for('menu', pair_id=pair_id))
 
     # Render the index page if the request method is GET
     return render_template("index.html", selected_pair_id=selected_pair_id, guest_name1=guest_name1,
