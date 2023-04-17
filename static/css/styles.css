@@ -83,6 +83,12 @@ section {
     gap: 1rem;
 }
 
+.welcome-message {
+        font-size: 1.5rem;
+
+}
+
+
 .guest-info {
     background-color: rgba(249, 231, 159, 0.8);
     padding: 1rem;
