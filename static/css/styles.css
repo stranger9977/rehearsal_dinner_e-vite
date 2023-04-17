@@ -34,6 +34,8 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    padding-top: 80px;
+
 }
 
 header {
@@ -67,6 +69,7 @@ section {
     align-items: center;
     width: 90%; /* Add this line to make the width responsive */
     margin-top: 5rem; /* Add this line to move the box down */
+    margin: 0 auto;
 }
 
 .guest-box-container {
