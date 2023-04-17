@@ -291,12 +291,10 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
   margin-top: 1rem;
 }
 
-#final-page {
-    padding-top: 4rem;
-}
+
 
 .title-container {
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 /* Mobile-first styles */
