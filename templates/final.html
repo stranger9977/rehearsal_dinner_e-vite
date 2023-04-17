@@ -11,13 +11,13 @@
     </div>
 
     <div class="menu-section">
-        <div class="guest-box">
             {% for guest in guests %}
+                <div class="guest-box">
                     <h3>{{ guest.name }}</h3>
                     <p>Appetizer: {{ guest.menuChoices.appetizer }}</p>
                     <p>Entree: {{ guest.menuChoices.entree }}</p>
                     <p>Dessert: {{ guest.menuChoices.dessert }}</p>
+                </div>
             {% endfor %}
-        </div>
     </div>
 {% endblock %}
