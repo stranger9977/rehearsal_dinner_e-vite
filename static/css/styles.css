@@ -35,7 +35,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     padding-top: 80px;
-    font-size: 30px; /* Adjust font size as needed */
+    font-size: 18px; /* Adjust font size as needed */
     font-weight: 500; /* Adjust font weight as needed */
 
 }
@@ -362,21 +362,25 @@ menu-item .fas {
     width: 100%;
   }
 
+    body {
+    font-size: 20px; /* Set a larger font size for smaller screens */
+  }
+
   /* Adjust font sizes to be more readable on small screens */
   h1 {
-    font-size: 2.5rem !important;
+    font-size: 2.5rem ;
   }
 
   h2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 1.5rem !important;;
+    font-size: 1.5rem ;
   }
 
   p {
-    font-size: 1rem !important;;
+    font-size: 1rem;
   }
 }
 /* Center the navigation buttons on small screens */
