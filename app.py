@@ -87,22 +87,18 @@ def update_guest_rsvp(pair_id, guest_name, rsvp_status, guests_by_pair):
         guests_by_pair[pair_id][guest_name]["rsvpStatus"] = rsvp_status
 
 def update_guest_data(guests_by_pair):
-    with open('guest_data.csv', mode='r') as infile:
+    with open('guests.csv', mode='r') as infile:
         reader = csv.DictReader(infile)
         data = [row for row in reader]
 
-    with open('guest_data.csv', mode='w', newline='') as outfile:
-        fieldnames = ['pair_id', 'name', 'rsvpStatus', 'appetizer', 'entree', 'dessert']
-        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
-        writer.writeheader()
+    updated_rows = []
 
-        for row_data in data:
-            pair_id = row_data['pair_id']
-            if pair_id in guests_by_pair:
-                row_data.update(guests_by_pair[pair_id])
+    for row_data in data:
+        pair_id = row_data['pair_id']
+        if pair_id in guests_by_pair:
+            row_data.update(guests_by_pair[pair_id])
 
-            writer.writerow(row_data)
-
+        updated_rows.append(row_data)
 
     with open('guests.csv', mode='w', newline='') as csvfile:
         fieldnames = ['pair_id', 'name', 'rsvpStatus', 'appetizer', 'entree', 'dessert']
