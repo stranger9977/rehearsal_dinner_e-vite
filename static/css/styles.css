@@ -386,6 +386,7 @@ menu-item .fas {
     align-items: center;
 }
 .centered-message {
+  font-size: 1.2rem;
   background-color: rgba(249, 231, 159, 0.8);
   text-align: center;
   display: flex;
