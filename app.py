@@ -113,33 +113,8 @@ def update_guest_data(guests_by_pair):
             writer.writerow(row)
 
 
-
-
-@app.route('/<pair_id>', methods=['GET', 'POST'])
-def guest_page(pair_id):
-    print(f"Handling request for pair_id: {pair_id}")  # Add this line
-    try:
-        # Look up the guests associated with this pair ID
-        guests = guests_by_pair[pair_id]
-
-        # Get guest names from the guests dictionary
-        guest_names = list(guests.keys())
-        print(f"Guests for pair_id {pair_id}: {guest_names}")  # Add this line
-
-        # If the request method is "POST", redirect to the menu page
-        if request.method == "POST":
-            return redirect(url_for('menu', pair_id=pair_id))
-
-        # If the request method is "GET", render the guest page template with the appropriate data
-        return render_template("index.html", pair_id=pair_id, guest_name1=guest_names[0],
-                               guest_name2=guest_names[1], get_guest_rsvp=get_guest_rsvp)
-
-    except KeyError:
-        # If the pair ID is not found, render an error page
-        print(f"Error: Invalid pair_id: {pair_id}")  # Add this line
-        return render_template('error.html', error_message="Invalid pair ID")
-
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/<pair_id>', methods=['GET', 'POST'])
 def index():
 
     pair_id = request.args.get('pair_id')  # Remove the default pair ID
