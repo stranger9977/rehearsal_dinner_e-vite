@@ -1,6 +1,6 @@
 /* General styles */
 nav.navbar {
-    background-color: #8B4513 !important;
+    background-color: #5C2D0F; !important;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -141,14 +141,14 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
 }
 
 .menu-dropdown {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
 }
 
 .menu-dropdown select {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #5C2D0F;
   color: #5C2D0F;
   max-width: 100%;
