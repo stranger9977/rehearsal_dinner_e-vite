@@ -38,6 +38,7 @@ def generate_guest_urls(csv_filename):
             urls[pair_id] = base_url + pair_id
     return urls
 
+
 csv_filename = s3_utils.csv_filename
 
 
@@ -71,6 +72,10 @@ def get_guest_names(pair_id=None):
 
     # Get the guests with the specified pair_id
     guests = guests_by_pair[pair_id]
+
+    # If there is only one guest, return their name as a string
+    if len(guests) == 1:
+        return list(guests.keys())[0]
 
     # If there are two guests, return their names
     if len(guests) == 2:

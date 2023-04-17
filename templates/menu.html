@@ -66,7 +66,10 @@
         </div>
         <form class="menu-form" method="POST" action="{{ url_for('menu', pair_id=pair_id) }}">
           {% for guest_name in [guest_name1, guest_name2] %}
+
           <h3>{{ guest_name }}</h3>
+            {% if guest_name == guest_name1 or guest_name2 != '' %}
+            <h3>{{ guest_name2 }}</h3>
           <div class="menu-dropdown">
             {% for category in ['appetizer', 'entree', 'dessert'] %}
               <div class="form-group">
@@ -82,6 +85,7 @@
               </div>
             {% endfor %}
           </div>
+            {% endif %}
           {% endfor %}
           <div class="submit-button">
             <button type="submit" class="btn btn-primary">Submit</button>
