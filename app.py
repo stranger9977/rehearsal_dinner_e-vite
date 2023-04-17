@@ -2,7 +2,7 @@ import csv
 from flask import Flask, render_template, request, redirect, url_for
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from jinja2.ext import Extension
-
+import s3_utils
 app = Flask(__name__)
 app.jinja_env.add_extension('jinja2.ext.do')
 
@@ -38,7 +38,7 @@ def generate_guest_urls(csv_filename):
             urls[pair_id] = base_url + pair_id
     return urls
 
-csv_filename = 'guests.csv'
+csv_filename = s3_utils.csv_filename
 guest_urls = generate_guest_urls(csv_filename)
 
 for pair_id, url in guest_urls.items():
@@ -139,8 +139,10 @@ def index():
             print(f"Updating RSVP status for {guest_name2} to {rsvp_status2}")
 
         # Update the CSV file after updating guest data
-        print("Updating guest data in CSV file")
-        update_guest_data(guests_by_pair)
+            # Update the CSV file after updating guest data
+            print("Updating guest data in CSV file")
+            update_guest_data(guests_by_pair)
+            s3_utils.upload_csv_to_s3()  # upload the updated guests.csv to S3
 
         # Redirect to the menu page after submitting the RSVP status
         return redirect(url_for('menu', pair_id=selected_pair_id))
@@ -201,6 +203,7 @@ def menu():
         # Update the CSV file after updating guest data
         print("Updating guest data in CSV file")
         update_guest_data(guests_by_pair)
+        s3_utils.upload_csv_to_s3()  # upload the updated guests.csv to S3
 
         # Redirect to a success or confirmation page, or just reload the menu page
         return redirect(url_for('final', pair_id=pair_id))
