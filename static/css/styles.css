@@ -74,7 +74,9 @@ section {
     margin-top: 5rem; /* Add this line to move the box down */
     margin: 0 auto;
 }
-
+.container {
+margin-top: 5rem;
+}
 .guest-box-container {
     margin: 1rem 0;
     display: flex;
