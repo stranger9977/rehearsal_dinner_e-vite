@@ -114,8 +114,8 @@ def update_guest_data(guests_by_pair):
 
 
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/<pair_id>', methods=['GET', 'POST'])
-def index():
+@app.route("/<int:pair_id>", methods=["GET", "POST"])
+def index(pair_id=None):
 
     pair_id = request.args.get('pair_id')  # Remove the default pair ID
     if pair_id is None:
