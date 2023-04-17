@@ -29,7 +29,7 @@
 </nav>
 <div class="container">
         <h1>Menu</h1>
-        <form class="menu-form" method="POST" action="{{ url_for('menu') }}">
+        <form class="menu-form" method="POST" action="{{ url_for('menu', pair_id=pair_id) }}">
             {% for guest_name in [guest_name1, guest_name2] %}
             <h3>{{ guest_name }}</h3>
             {% for category in ['appetizer', 'entree', 'dessert'] %}
