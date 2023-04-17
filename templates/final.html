@@ -14,7 +14,7 @@
         <div class="menu-grid">
             {% for guest in guests %}
                 <div class="menu-item">
-                    <h3>{{ guest.name }}</h3>
+                    <h3 class="guest-name">{{ guest.name }}</h3>
                     <p>Appetizer: {{ guest.menuChoices.appetizer }}</p>
                     <p>Entree: {{ guest.menuChoices.entree }}</p>
                     <p>Dessert: {{ guest.menuChoices.dessert }}</p>

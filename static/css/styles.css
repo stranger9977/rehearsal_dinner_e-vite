@@ -304,8 +304,8 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
 .title-container {
     margin-top: 2rem;
 }
-.guest-info h3 {
-  color: #F9E79F;
+.guest-name {
+  color: #F9E79F; /* Yellow font color */
 }
 /* Mobile-first styles */
 @media (max-width: 767px) {
