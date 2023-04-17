@@ -291,6 +291,14 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
   margin-top: 1rem;
 }
 
+#final-page {
+    padding-top: 4rem;
+}
+
+.title-container {
+    margin-top: 4rem;
+}
+
 /* Mobile-first styles */
 @media (max-width: 767px) {
   /* Adjust the width of the appetizer, entree, and dessert boxes to fit smaller screens */
