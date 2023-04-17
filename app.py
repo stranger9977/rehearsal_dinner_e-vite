@@ -113,10 +113,6 @@ def update_guest_data(guests_by_pair):
             writer.writerow(row)
 
 
-@app.route('/', methods=['GET'])
-def default_route():
-    default_pair_id = 5980
-    return redirect(url_for('index', pair_id=default_pair_id))  # Replace '5980' with the default pair_id you want to show
 
 @app.route("/<pair_id>", methods=["GET", "POST"])
 def index(pair_id):
