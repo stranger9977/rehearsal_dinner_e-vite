@@ -117,12 +117,15 @@ def update_guest_data(guests_by_pair):
 
 @app.route('/<pair_id>', methods=['GET', 'POST'])
 def guest_page(pair_id):
+    print(f"Handling request for pair_id: {pair_id}")  # Add this line
     try:
         # Look up the guests associated with this pair ID
         guests = guests_by_pair[pair_id]
 
         # Get guest names from the guests dictionary
         guest_names = list(guests.keys())
+        print(f"Guests for pair_id {pair_id}: {guest_names}")  # Add this line
+
         # If the request method is "POST", redirect to the menu page
         if request.method == "POST":
             return redirect(url_for('menu', pair_id=pair_id))
@@ -133,6 +136,7 @@ def guest_page(pair_id):
 
     except KeyError:
         # If the pair ID is not found, render an error page
+        print(f"Error: Invalid pair_id: {pair_id}")  # Add this line
         return render_template('error.html', error_message="Invalid pair ID")
 
 @app.route('/', methods=['GET', 'POST'])
