@@ -29,7 +29,7 @@ nav.navbar {
 body {
     background-color: #F9E79F; /* Canary yellow background */
     color: #5C2D0F; /* Darker brown font color */
-    font-family: 'Vollkorn+SC' !important; /* Scripty but not hard-to-read font */
+    font-family: 'Vollkorn SC' !important; /* Scripty but not hard-to-read font */
     background-image: url("https://i.etsystatic.com/11020628/r/il/9b0f99/3401227635/il_1588xN.3401227635_cl9s.jpg");
     background-size: cover;
     background-position: center;
