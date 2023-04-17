@@ -218,8 +218,8 @@ def menu():
     return render_template('menu.html', guest_name1=guest_name1, guest_name2=guest_name2, menu_items=menu_items, pair_id=pair_id)
 
 
-@app.route('/final')
-def final():
+@app.route('/final/<pair_id>', methods=['GET'])
+def final(pair_id):
 
     # Filter the guests who have RSVP'd "yes" and have submitted their menu choices
     confirmed_guests = []
@@ -234,7 +234,7 @@ def final():
                 if all(guest_menu_choices.values()):
                     confirmed_guests.append({"name": guest_name, **guest_data, "menuChoices": guest_menu_choices})
 
-    return render_template("final.html", guests=confirmed_guests)
+    return render_template("final.html", guests=confirmed_guests, pair_id=pair_id)
 
 
 if __name__ == '__main__':
