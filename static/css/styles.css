@@ -60,7 +60,11 @@ section {
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
-    max-width: 500px; /* Add this line to limit the width */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 90%; /* Add this line to make the width responsive */
     margin-top: 5rem; /* Add this line to move the box down */
 }
