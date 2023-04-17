@@ -90,16 +90,20 @@ def update_guest_data(guests_by_pair):
     with open(csv_filename, 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=['pair_id', 'name', 'rsvpStatus', 'appetizer', 'entree', 'dessert'])
         writer.writeheader()
-        for pair_id, guests in guests_by_pair.items():
-            for guest_name, guest_data in guests.items():
-                writer.writerow({
-                    'pair_id': pair_id,
-                    'name': guest_name,
-                    'rsvpStatus': guest_data["rsvpStatus"],
-                    'appetizer': guest_data.get("appetizer", ""),
-                    'entree': guest_data.get("entree", ""),
-                    'dessert': guest_data.get("dessert", "")
-                })
+    for pair_id, guests in guests_by_pair.items():
+        for guest_name, guest_data in guests.items():
+            row_data = {
+                'pair_id': pair_id,
+                'name': guest_name,
+                'rsvpStatus': guest_data["rsvpStatus"],
+                'appetizer': guest_data.get("appetizer", ""),
+                'entree': guest_data.get("entree", ""),
+                'dessert': guest_data.get("dessert", "")
+            }
+            print(f"Writing row to CSV: {row_data}")  # Added print statement
+            writer.writerow(row_data)
+
+
 
 
 csv_filename = 'guests.csv'
@@ -135,9 +139,14 @@ def index():
     guest_name1, guest_name2 = get_guest_names(pair_id)
 
     if request.method == "POST":
+        print("Entered POST block in index function")  # Added print statement
+
         # Get the RSVP status from the form
         rsvp_status1 = request.form.get("rsvpStatus1")
+        print(f"Updating RSVP status for {guest_name1} to {rsvp_status1}")
+
         rsvp_status2 = request.form.get("rsvpStatus2")
+        print(f"Updating RSVP status for {guest_name2} to {rsvp_status2}")
 
         # Update the guest data for the guest whose RSVP status was submitted
         if rsvp_status1 is not None:
