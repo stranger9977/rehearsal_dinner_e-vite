@@ -71,7 +71,7 @@ section {
     justify-content: center;
     align-items: center;
     width: 90%; /* Add this line to make the width responsive */
-    margin-top: 8rem; /* Add this line to move the box down */
+    margin-top: 10rem; /* Add this line to move the box down */
     margin: 0 auto;
 }
 
