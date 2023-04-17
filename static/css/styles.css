@@ -1,6 +1,6 @@
 /* General styles */
 nav.navbar {
-    background-color: #8B4513;
+    background-color: #8B4513 !important;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -29,7 +29,7 @@ nav.navbar {
 body {
     background-color: #F9E79F; /* Canary yellow background */
     color: #5C2D0F; /* Darker brown font color */
-    font-family: 'Tangerine', cursive; /* Scripty but not hard-to-read font */
+    font-family: 'Tangerine', cursive !important; /* Scripty but not hard-to-read font */
     background-image: url("https://i.etsystatic.com/11020628/r/il/9b0f99/3401227635/il_1588xN.3401227635_cl9s.jpg");
     background-size: cover;
     background-position: center;
@@ -140,19 +140,18 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
   margin-bottom: 1rem;
 }
 
-/* Style the dropdown menus */
 .menu-dropdown {
-  background-color: #F9E79F;
+  background-color: transparent;
   padding: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
 }
 
 .menu-dropdown select {
-  background-color: #F9E79F;
+  background-color: transparent;
   border: 1px solid #5C2D0F;
   color: #5C2D0F;
-  max-width: 100%; /* Add this line */
+  max-width: 100%;
 }
 
 
