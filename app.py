@@ -87,21 +87,23 @@ def update_guest_rsvp(pair_id, guest_name, rsvp_status, guests_by_pair):
         guests_by_pair[pair_id][guest_name]["rsvpStatus"] = rsvp_status
 
 def update_guest_data(guests_by_pair):
-    with open(csv_filename, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['pair_id', 'name', 'rsvpStatus', 'appetizer', 'entree', 'dessert'])
+    with open('guests.csv', mode='r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        updated_rows = []
+
+        for row in reader:
+            if row['pair_id'] in guests_by_pair:
+                row.update(guests_by_pair[row['pair_id']])
+            updated_rows.append(row)
+
+    with open('guests.csv', mode='w', newline='') as csvfile:
+        fieldnames = ['pair_id', 'name', 'rsvpStatus', 'appetizer', 'entree', 'dessert']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
         writer.writeheader()
-    for pair_id, guests in guests_by_pair.items():
-        for guest_name, guest_data in guests.items():
-            row_data = {
-                'pair_id': pair_id,
-                'name': guest_name,
-                'rsvpStatus': guest_data["rsvpStatus"],
-                'appetizer': guest_data.get("appetizer", ""),
-                'entree': guest_data.get("entree", ""),
-                'dessert': guest_data.get("dessert", "")
-            }
-            print(f"Writing row to CSV: {row_data}")  # Added print statement
-            writer.writerow(row_data)
+        for row in updated_rows:
+            writer.writerow(row)
+
 
 
 
@@ -163,10 +165,10 @@ def index():
             s3_utils.upload_csv_to_s3()  # upload the updated guests.csv to S3
 
         # Redirect to the menu page after submitting the RSVP status
-        return redirect(url_for('menu', pair_id=selected_pair_id))
+        return redirect(url_for('menu', pair_id=pair_id))
 
     # Render the index page if the request method is GET
-    return render_template("index.html", pair_id=selected_pair_id, guest_name1=guest_name1,
+    return render_template("index.html", pair_id=pair_id, guest_name1=guest_name1,
                            guest_name2=guest_name2, get_guest_rsvp=get_guest_rsvp)
 
 
