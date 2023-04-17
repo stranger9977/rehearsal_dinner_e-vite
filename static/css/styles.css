@@ -71,12 +71,10 @@ section {
     justify-content: center;
     align-items: center;
     width: 90%; /* Add this line to make the width responsive */
-    margin-top: 5rem; /* Add this line to move the box down */
+    margin-top: 10rem !important; /* Add this line to move the box down */
     margin: 0 auto;
 }
-.container {
-margin-top: 5rem;
-}
+
 .guest-box-container {
     margin: 1rem 0;
     display: flex;
