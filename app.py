@@ -118,7 +118,7 @@ def guest_page(pair_id):
             return redirect(url_for('menu', pair_id=pair_id))
 
         # If the request method is "GET", render the guest page template with the appropriate data
-        return render_template("guest_page.html", pair_id=pair_id, guest_name1=guest_names[0],
+        return render_template("index.html", pair_id=pair_id, guest_name1=guest_names[0],
                                guest_name2=guest_names[1], get_guest_rsvp=get_guest_rsvp)
 
     except KeyError:
