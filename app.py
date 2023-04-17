@@ -39,6 +39,8 @@ def generate_guest_urls(csv_filename):
     return urls
 
 csv_filename = s3_utils.csv_filename
+
+
 guest_urls = generate_guest_urls(csv_filename)
 
 for pair_id, url in guest_urls.items():
@@ -60,6 +62,7 @@ def generate_guest_data(csv_filename):
             guests_by_pair[pair_id][guest_name] = {"rsvpStatus": rsvp_status, "appetizer": appetizer, "entree": entree, "dessert": dessert}
     return guests_by_pair
 
+guests_by_pair = generate_guest_data(csv_filename)  # Add this line
 
 def get_guest_names(pair_id=None):
     # If pair_id is not specified, return the first pair
@@ -233,7 +236,6 @@ def menu():
 
 @app.route('/final')
 def final():
-    guests_by_pair = generate_guest_data(csv_filename)
 
     # Filter the guests who have RSVP'd "yes" and have submitted their menu choices
     confirmed_guests = []
