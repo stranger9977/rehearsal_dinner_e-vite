@@ -16,7 +16,7 @@ nav.navbar {
 }
 
 .navbar .navbar-brand {
-    color: #F9E79F; /* Yellow font color */
+    color: #F9E79F !important; /* Yellow font color */
 }
 
 .navbar .navbar-brand:hover {
