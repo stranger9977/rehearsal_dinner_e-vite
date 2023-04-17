@@ -28,54 +28,68 @@
     </div>
 </nav>
 <div class="container">
-        <h1>Menu</h1>
-        <form class="menu-form" method="POST" action="{{ url_for('menu', pair_id=pair_id) }}">
-            {% for guest_name in [guest_name1, guest_name2] %}
-            <h3>{{ guest_name }}</h3>
-            {% for category in ['appetizer', 'entree', 'dessert'] %}
-            <div id="{{ category }}-carousel-{{ guest_name }}" class="carousel slide" data-ride="carousel" data-interval="false">
-              <div class="carousel-inner">
-                {% for item in menu_items %}
-                  {% if item.category == category %}
-                    <div class="carousel-item {% if loop.first %}active{% endif %}">
-                      <img src="{{ item.icon }}" class="dish-icon" alt="{{ item.name }} icon">
-                      <h5>{{ item.name }}</h5>
-                      <p>{{ item.description }}</p>
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
-              <ol class="carousel-indicators">
-                {% for item in menu_items %}
-                  {% if item.category == category %}
-                    <li data-target="#{{ category }}-carousel-{{ guest_name }}" data-slide-to="{{ loop.index0 }}" {% if loop.first %}class="active"{% endif %}></li>
-                  {% endif %}
-                {% endfor %}
-              </ol>
-              <a class="carousel-control-prev" href="#{{ category }}-carousel-{{ guest_name }}" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#{{ category }}-carousel-{{ guest_name }}" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-            <div class="form-group">
-                <label>{{ category.capitalize() }}</label>
-                <select class="form-control" name="{{ guest_name }}-{{ category }}">
-                    <option value="">Please select...</option>
+    <h1>Menu</h1>
+ <div class="menu-box">
+          <h2>Menu</h2>
+          <div id="menu-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner">
+              {% for category in ['appetizer', 'entree', 'dessert'] %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                  <h3>{{ category.capitalize() }}</h3>
+                  <div class="menu-grid">
                     {% for item in menu_items %}
-                        {% if item.category == category %}
-                            <option value="{{ item.name }}">{{ item.name }}</option>
-                        {% endif %}
+                      {% if item.category == category %}
+                        <div class="menu-item">
+                          <img src="{{ item.icon }}" class="icon" alt="{{ item.name }} icon">
+                          <h5>{{ item.name }}</h5>
+                          <p>{{ item.description }}</p>
+                        </div>
+                      {% endif %}
                     {% endfor %}
-                </select>
+                  </div>
+                </div>
+              {% endfor %}
             </div>
+            <ol class="carousel-indicators">
+              {% for category in ['appetizer', 'entree', 'dessert'] %}
+                <li data-target="#menu-carousel" data-slide-to="{{ loop.index0 }}" {% if loop.first %}class="active"{% endif %}>{{ category.capitalize() }}</li>
+              {% endfor %}
+            </ol>
+            <a class="carousel-control-prev" href="#menu-carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#menu-carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <form class="menu-form" method="POST" action="{{ url_for('menu', pair_id=pair_id) }}">
+          {% for guest_name in [guest_name1, guest_name2] %}
+          <h3>{{ guest_name }}</h3>
+          <div class="menu-dropdown">
+            {% for category in ['appetizer', 'entree', 'dessert'] %}
+              <div class="form-group">
+                  <label>{{ category.capitalize() }}</label>
+                  <select class="form-control" name="{{ guest_name }}-{{ category }}">
+                      <option value="">Please select...</option>
+                      {% for item in menu_items %}
+                          {% if item.category == category %}
+                              <option value="{{ item.name }}">{{ item.name }}</option>
+                          {% endif %}
+                      {% endfor %}
+                  </select>
+              </div>
             {% endfor %}
-            {% endfor %}
+          </div>
+          {% endfor %}
+          <div class="submit-button">
             <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
-    </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
