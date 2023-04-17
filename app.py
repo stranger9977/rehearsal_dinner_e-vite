@@ -98,8 +98,9 @@ def update_guest_data(guests_by_pair):
 
     for row_data in data:
         pair_id = row_data['pair_id']
-        if pair_id in guests_by_pair:
-            row_data.update(guests_by_pair[pair_id])
+        guest_name = row_data['name']
+        if pair_id in guests_by_pair and guest_name in guests_by_pair[pair_id]:
+            row_data.update(guests_by_pair[pair_id][guest_name])
 
         updated_rows.append(row_data)
 
@@ -110,6 +111,7 @@ def update_guest_data(guests_by_pair):
         writer.writeheader()
         for row in updated_rows:
             writer.writerow(row)
+
 
 
 
