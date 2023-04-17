@@ -113,17 +113,26 @@ def guest_page(pair_id):
 
         # Get guest names from the guests dictionary
         guest_names = list(guests.keys())
+        # If the request method is "POST", redirect to the menu page
+        if request.method == "POST":
+            return redirect(url_for('menu', pair_id=pair_id))
 
-        # Render the guest page template with the appropriate data
-        return render_template('index.html', selected_pair_id=pair_id, guest_name1=guest_names[0], guest_name2=guest_names[1], menu_items=menu_items, get_guest_rsvp=get_guest_rsvp)
+        # If the request method is "GET", render the guest page template with the appropriate data
+        return render_template("guest_page.html", pair_id=pair_id, guest_name1=guest_names[0],
+                               guest_name2=guest_names[1], get_guest_rsvp=get_guest_rsvp)
+
     except KeyError:
         # If the pair ID is not found, render an error page
         return render_template('error.html', error_message="Invalid pair ID")
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    selected_pair_id = request.args.get('pair_id', "5980")  # default pair ID
-    guest_name1, guest_name2 = get_guest_names(selected_pair_id)
+    pair_id = request.args.get('pair_id')  # Remove the default pair ID
+    if pair_id is None:
+        pair_id = "5980"  # Set the default pair ID here
+
+    guest_name1, guest_name2 = get_guest_names(pair_id)
 
     if request.method == "POST":
         # Get the RSVP status from the form
@@ -132,10 +141,10 @@ def index():
 
         # Update the guest data for the guest whose RSVP status was submitted
         if rsvp_status1 is not None:
-            update_guest_rsvp(selected_pair_id, guest_name1, rsvp_status1 == "yes", guests_by_pair)
+            update_guest_rsvp(pair_id, guest_name1, rsvp_status1 == "yes", guests_by_pair)
             print(f"Updating RSVP status for {guest_name1} to {rsvp_status1}")
         if rsvp_status2 is not None:
-            update_guest_rsvp(selected_pair_id, guest_name2, rsvp_status2 == "yes", guests_by_pair)
+            update_guest_rsvp(pair_id, guest_name2, rsvp_status2 == "yes", guests_by_pair)
             print(f"Updating RSVP status for {guest_name2} to {rsvp_status2}")
 
         # Update the CSV file after updating guest data
