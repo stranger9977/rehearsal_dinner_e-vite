@@ -114,6 +114,9 @@ def update_guest_data(guests_by_pair):
 
 
 @app.route('/', methods=['GET', 'POST'])
+def default():
+    return redirect(url_for('index', pair_id=5980))  # Replace '5980' with the default pair_id you want to show
+
 @app.route("/<int:pair_id>", methods=["GET", "POST"])
 def index(pair_id=None):
 
