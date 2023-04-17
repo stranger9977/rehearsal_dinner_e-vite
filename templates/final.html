@@ -9,5 +9,17 @@
         <p>We're excited to see you at our rehearsal dinner on DATE at LOCATION.</p>
         <p>Below are the details of the event and options to add it to your calendar:</p>
     </div>
-{% endblock %}
 
+    <div class="menu-section">
+        <div class="menu-grid">
+            {% for guest in guests %}
+                <div class="menu-item">
+                    <h3>{{ guest.name }}</h3>
+                    <p>Appetizer: {{ guest.menuChoices.appetizer }}</p>
+                    <p>Entree: {{ guest.menuChoices.entree }}</p>
+                    <p>Dessert: {{ guest.menuChoices.dessert }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
