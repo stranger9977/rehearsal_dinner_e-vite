@@ -1,8 +1,8 @@
-/* General styles */
 nav.navbar {
     background-color: #5C2D0F !important;
     position: fixed;
     width: 100%;
+    top: 0; /* Add this line to position the navbar at the top */
     z-index: 1000;
 }
 
@@ -60,8 +60,13 @@ section {
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
-    max-width: 500px; /* Add this line to limit the width */
-    width: 90%; /* Add this line to make the width responsive */
+    max-width: 500px;
+    width: 90%;
+    margin: 5rem auto 0; /* Add margin-top and center the element */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .guest-box-container {

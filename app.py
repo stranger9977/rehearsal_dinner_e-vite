@@ -215,21 +215,18 @@ def menu(pair_id):
     return render_template('menu.html', guest_name1=guest_name1, guest_name2=guest_name2, menu_items=menu_items, pair_id=pair_id)
 
 
-@app.route('/final/<pair_id>', methods=['GET'])
+app.route('/final/<pair_id>', methods=['GET'])
 def final(pair_id):
-
-    # Filter the guests who have RSVP'd "yes" and have submitted their menu choices
     confirmed_guests = []
-    for pair_id, guests in guests_by_pair.items():
-        for guest_name, guest_data in guests.items():
-            if guest_data["rsvpStatus"]:
-                guest_menu_choices = {
-                    'appetizer': guest_data.get('appetizer'),
-                    'entree': guest_data.get('entree'),
-                    'dessert': guest_data.get('dessert')
-                }
-                if all(guest_menu_choices.values()):
-                    confirmed_guests.append({"name": guest_name, **guest_data, "menuChoices": guest_menu_choices})
+    for guest_name, guest_data in guests_by_pair[pair_id].items():
+        if guest_data["rsvpStatus"]:
+            guest_menu_choices = {
+                'appetizer': guest_data.get('appetizer'),
+                'entree': guest_data.get('entree'),
+                'dessert': guest_data.get('dessert')
+            }
+            if all(guest_menu_choices.values()):
+                confirmed_guests.append({"name": guest_name, **guest_data, "menuChoices": guest_menu_choices})
 
     return render_template("final.html", guests=confirmed_guests, pair_id=pair_id)
 
