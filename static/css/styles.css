@@ -35,6 +35,8 @@ body {
     background-position: center;
     background-attachment: fixed;
     padding-top: 80px;
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: 500; /* Adjust font weight as needed */
 
 }
 
@@ -147,12 +149,17 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
   height: 100px;
   margin-bottom: 1rem;
 }
-
-.menu-dropdown {
+.dish-info {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.menu-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .menu-dropdown select {
@@ -307,6 +314,43 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
 .guest-name {
   color: #F9E79F; /* Yellow font color */
 }
+
+.icon {
+    color: #5C2D0F;
+}
+.carousel-item.active h3 {
+  color: #F9E79F !important;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #5C2D0F;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.carousel-control-prev-icon {
+  left: 10px;
+}
+
+.carousel-control-next-icon {
+  right: 10px;
+}
+
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #8B4513;
+}
+
+menu-item .fas {
+  font-size: 1.5em;
+}
 /* Mobile-first styles */
 @media (max-width: 767px) {
   /* Adjust the width of the appetizer, entree, and dessert boxes to fit smaller screens */
@@ -336,4 +380,15 @@ h1, h2, h3, h4, h5, h6, .guest h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.centered-message {
+  background-color: rgba(249, 231, 159, 0.8);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: fit-content;
+  margin: 0 auto;
 }

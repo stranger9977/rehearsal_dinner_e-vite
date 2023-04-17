@@ -10,25 +10,25 @@ base_url = 'https://rehearsal-dinner.herokuapp.com/'
 
 # Add MenuItem class definition
 class MenuItem:
-    def __init__(self, id, name, description, category):
+    def __init__(self, id, name, description, category, icon):
         self.id = id
         self.name = name
         self.description = description
         self.category = category
+        self.icon = icon
 
 # Create menu items
 menu_items = [
-    MenuItem(1, 'Appetizer 1', 'Delicious appetizer 1', 'appetizer'),
-    MenuItem(2, 'Appetizer 2', 'Delicious appetizer 2', 'appetizer'),
-    MenuItem(3, 'Appetizer 3', 'Delicious appetizer 3', 'appetizer'),
-    MenuItem(4, 'Entree 1', 'Delicious entree 1', 'entree'),
-    MenuItem(5, 'Entree 2', 'Delicious entree 2', 'entree'),
-    MenuItem(6, 'Entree 3', 'Delicious entree 3', 'entree'),
-    MenuItem(7, 'Dessert 1', 'Delicious dessert 1', 'dessert'),
-    MenuItem(8, 'Dessert 2', 'Delicious dessert 2', 'dessert'),
-    MenuItem(9, 'Dessert 3', 'Delicious dessert 3', 'dessert')
+    MenuItem(1, 'New England Clam Chowder', 'Local Clams, Potatoes, Onions, Celery', 'appetizer', "fas fa-utensils"),
+    MenuItem(2, 'Ceasar Salad', 'Shaved Parmesan, Croutons, Zesty Dressing', 'appetizer', "fas fa-leaf"),
+    MenuItem(3, 'Beach Plum Farm Greens', 'Shaved Carrots, Cucumber, Red Onion', 'appetizer', "fas fa-carrot"),
+    MenuItem(4, 'Brick Pressed Chicken Breast', 'Whipped Potato, Arugula and Citrus Salad', 'entree', "fas fa-drumstick-bite"),
+    MenuItem(5, 'Baked Atlanta Cod', 'Potato Succotash, Seasonal Vegetables', 'entree', "fas fa-fish"),
+    MenuItem(6, 'Bacon Wrapped Meat Loaf', 'Whipped Potato, Broccolini, Red Wine Gravy', 'entree', "fas fa-bacon"),
+    MenuItem(7, 'Congressional Apple Pie', 'Vanilla Ice Cream', 'dessert', "fas fa-ice-cream"),
+    MenuItem(8, 'Dark Chocolate Mousse', 'Potted Cherries', 'dessert', 'fas fa-utensil-spoon'),
+    MenuItem(9, 'Seasonal Fruit Cobbler', 'Warm Fruit Filling With Flaky Crust', 'dessert', 'fas fa-lemon')
 ]
-
 def generate_guest_urls(csv_filename):
     with open(csv_filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)

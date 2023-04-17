@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('index', pair_id=pair_id) }}">Info</a>
+                <a class="nav-link" href="{{ url_for('index', pair_id=pair_id) }}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('menu', pair_id=pair_id) }}">Menu</a>
@@ -30,14 +30,18 @@
 <div class="container d-flex justify-content-center align-items-center vh-100" style="margin-top: .001 rem;">
     <div class="welcome-box">
         <div class="title-container"> <!-- Add this div -->
-            <h1>You Are Cordially Invited to our Rehearsal Dinner</h1>
+            <h1>You Are Cordially Invited...</h1>
         </div>
         <div class="welcome-message">
             <p>
-                Please join us for the rehearsal dinner on May 19 at 5:30 pm in the Harrison Room at Congress Hall.
-                After submitting your RSVP, you can view the menu for the event. We look forward to celebrating with you!
-                Please RSVP below.
-            </p>
+  Please join us for the rehearsal dinner on May 19 at 5:30 pm in the Harrison Room at Congress Hall.
+  <br>
+                  <br>
+
+  After submitting your RSVP, you can view the menu for the event.
+  <br>
+  <p>We look forward to celebrating with you!</p>
+</p>
         </div>
         <form action="{{ url_for('index', pair_id=pair_id) }}" method="POST">
             <div class="guest-box-container">
