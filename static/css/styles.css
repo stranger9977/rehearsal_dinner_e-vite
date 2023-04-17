@@ -73,6 +73,7 @@ section {
     width: 90%; /* Add this line to make the width responsive */
     margin-top: 10rem !important; /* Add this line to move the box down */
     margin: 0 auto;
+    font-size: 1.15rem;
 }
 
 .guest-box-container {
