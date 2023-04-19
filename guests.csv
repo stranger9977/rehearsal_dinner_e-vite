@@ -1,47 +1,53 @@
 pair_id,name,rsvpStatus,appetizer,entree,dessert
-sarah,Sarah Hannings,FALSE,,,
-sarah,Brian Hill,FALSE,,,
+sarah,Sarah Hannings,TRUE,Ceasar Salad,Brick Pressed Chicken Breast,Congressional Apple Pie
+sarah,Brian Hill,TRUE,Ceasar Salad,Brick Pressed Chicken Breast,Dark Chocolate Mousse
 shauna,Shauna Hannings,FALSE,,,
 shauna,,FALSE,,,
 mark,Mark Langley,FALSE,,,
 mark,Nicole Heinlein,FALSE,,,
-becky,Becky Flanagan,FALSE,,,
-becky,Jeff Pauls,FALSE,,,
-connie,Connie Gurol,FALSE,,,
+becky,Becky Flanagan,FALSE,New England Clam Chowder,Brick Pressed Chicken Breast,Seasonal Fruit Cobbler
+becky,Jeff Pauls,FALSE,Ceasar Salad,Brick Pressed Chicken Breast,Congressional Apple Pie
+connie,Connie Gurol,FALSE,Beach Plum Farm Greens,Brick Pressed Chicken Breast,Dark Chocolate Mousse
 connie,,FALSE,,,
 carlene,Carlene Pagnotto,FALSE,,,
 carlene,,FALSE,,,
-heatherandryan,Heather Fellmeth,FALSE,,,
-heatherandryan,Ryan Sindelar,FALSE,,,
-alandgail,Gail Deana,FALSE,,,
+heatherandryan,Heather Fellmeth,TRUE,,,
+heatherandryan,Ryan Sindelar,TRUE,,,
+alandgail,Gail Deana,TRUE,Beach Plum Farm Greens,Brick Pressed Chicken Breast,Seasonal Fruit Cobbler
 alandgail,Albert Deana,FALSE,,,
 ajandcallie,AJ Czap,FALSE,,,
 ajandcallie,Callie Czap,FALSE,,,
 samiandlandon,Sami Hardy,FALSE,,,
 samiandlandon,Landon Pase,FALSE,,,
-luciana,Luciana Salles,FALSE,,,
+luciana,Luciana Salles,TRUE,,,
 luciana,,FALSE,,,
-christianandkylie,Christian Lupica,FALSE,,,
-christianandkylie,Kylie Lupica,FALSE,,,
+christianandkylie,Christian Lupica,TRUE,Ceasar Salad,Brick Pressed Chicken Breast,Dark Chocolate Mousse
+christianandkylie,Kylie Lupica,TRUE,Beach Plum Farm Greens,Baked Atlanta Cod,Seasonal Fruit Cobbler
 jason,Jason Deana,FALSE,,,
 jason,Paige Marx,FALSE,,,
 samandnick,Samantha Deana,TRUE,Beach Plum Farm Greens,Brick Pressed Chicken Breast,Seasonal Fruit Cobbler
 samandnick,Nick Gurol,TRUE,Ceasar Salad,Bacon Wrapped Meat Loaf,Congressional Apple Pie
 thecakeman,Trevor Reitz,FALSE,,,
 thecakeman,,FALSE,,,
-amanda,Amanda Nelson,FALSE,,,
+amanda,Amanda Nelson,TRUE,Ceasar Salad,Brick Pressed Chicken Breast,Dark Chocolate Mousse
 amanda,,FALSE,,,
-bubbbs,Sandra Myers,TRUE,,,
+bubbbs,Sandra Myers,TRUE,New England Clam Chowder,Baked Atlanta Cod,Seasonal Fruit Cobbler
 bubbbs,,FALSE,,,
-chrisandashton,Chris Fox,FALSE,,,
-chrisandashton,Ashton Fox,FALSE,,,
+chrisandashton,Chris Fox,TRUE,New England Clam Chowder,Bacon Wrapped Meat Loaf,Congressional Apple Pie
+chrisandashton,Ashton Fox,TRUE,Ceasar Salad,Bacon Wrapped Meat Loaf,Dark Chocolate Mousse
 jackandkate,Jack Else,FALSE,,,
-jackandkate,Kate Clark,FALSE,,,
-kelleyandsam,Kelley Hardy,FALSE,,,
-kelleyandsam,Sam Hardy,FALSE,,,
-christinaandandrew,Christina Gruna,FALSE,,,
-christinaandandrew,Andrew Gruna,FALSE,,,
-oliviaandeddie,Olivia Greco,FALSE,,,
+jackandkate,Kate Clark,TRUE,,,
+kelleyandsam,Kelley Hardy,FALSE,New England Clam Chowder,Baked Atlanta Cod,Congressional Apple Pie
+kelleyandsam,Sam Hardy,FALSE,Ceasar Salad,Brick Pressed Chicken Breast,Dark Chocolate Mousse
+christinaandandrew,Christina Gruna,TRUE,New England Clam Chowder,Baked Atlanta Cod,Seasonal Fruit Cobbler
+christinaandandrew,Andrew Gruna,TRUE,New England Clam Chowder,Baked Atlanta Cod,Congressional Apple Pie
+oliviaandeddie,Olivia Greco,TRUE,,,
 oliviaandeddie,Eddie McCoy,FALSE,,,
-jimandpilar,Jim Gurol,FALSE,,,
-jimandpilar,Pilar Gurol,FALSE,,,
+jimandpilar,Jim Gurol,TRUE,New England Clam Chowder,Bacon Wrapped Meat Loaf,Congressional Apple Pie
+jimandpilar,Pilar Gurol,TRUE,Ceasar Salad,Brick Pressed Chicken Breast,Seasonal Fruit Cobbler
+nevin,Nevin O'malley,FALSE,,,
+nevin,Justin Strupczewski,FALSE,,,
+bonnie,Bonnie Gephart,FALSE,,,
+bonnie,Darrick Rudy,FALSE,,,
+mamag,Karen Gardner,FALSE,,,
+mamag,Jerry Garnder,FALSE,,,
