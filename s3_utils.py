@@ -1,7 +1,7 @@
 import boto3
 import os
 
-s3 = boto3.client('s3', aws_access_key_id='AKIASQOU6RESMGXAMBK5', aws_secret_access_key='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')
+s3 = boto3.client('s3', aws_access_key_id='AWS_KEY', aws_secret_access_key='AWS_SECRET_KEY)
 bucket_name = 'rehearsaldinnerguets'
 csv_filename = 'guests.csv'
 
